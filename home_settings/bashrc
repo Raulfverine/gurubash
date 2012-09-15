@@ -148,7 +148,10 @@ carrow=$IGreen # separator for smile between error code
 function branch {
   a=`parse_git_branch`
   if [ -n "$a" ]; then
-    echo -e "$cbracket[$cbranch$a$cbracket]"
+    #echo -e "$cbracket[$cbranch$a$cbracket]"
+    #Temporary fix for mac (mountain lion). 
+    #TODO: Need to find a way to interpret echo -e as not an ordinary string.  
+    echo $'\e[35m'\[$'\e[1;36m'$a$'\e[1;35m']
   else
     echo ""
   fi
